@@ -14,7 +14,7 @@ public interface IScopeGasConnectionRepository {
 
     Optional<ScopeGasConnectionDbDto> findById(Integer id);
 
-    //List<ScopeGasConnectionDbDto> findByIdTaskAndTaskType(Integer id, TaskType taskType);
+    List<ScopeGasConnectionDbDto> findByIdTaskAndTaskType(Integer id, TaskType taskType);
 //
 //    List<Client> findAll();
 //

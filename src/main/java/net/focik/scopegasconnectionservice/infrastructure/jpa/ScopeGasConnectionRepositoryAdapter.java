@@ -27,8 +27,8 @@ class ScopeGasConnectionRepositoryAdapter implements IScopeGasConnectionReposito
         return scopeGasConnectionDtoRepository.findById(id);
     }
 
-//    @Override
-//    public List<ScopeGasConnectionDbDto> findByIdTaskAndTaskType(Integer id, TaskType taskType) {
-//        return scopeGasConnectionDtoRepository.findAllByIdTaskAndAndTypeOfTask(id, taskType.getDbValue());
-//    }
+    @Override
+    public List<ScopeGasConnectionDbDto> findByIdTaskAndTaskType(Integer id, TaskType taskType) {
+        return scopeGasConnectionDtoRepository.findAllByIdTaskAndAndTypeOfTask(id, taskType.getDbValue());
+    }
 }

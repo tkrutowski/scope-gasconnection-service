@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -30,6 +31,22 @@ class ScopeGasConnectionRepositoryAdapterTest {
 
         //then
         Assertions.assertTrue(resultId > 0);
+
+    }
+
+    @Test
+    void should_return_list_3_scope_when_3_added_with_same_idTask() {
+        //when
+        final Integer TASK_ID = 2;
+        final TaskType TASK_TYPE = TaskType.GAS_CONNECTION;
+        scopeGasConnectionDtoRepository.save(createDbDto1());
+        scopeGasConnectionDtoRepository.save(createDbDto2());
+        scopeGasConnectionDtoRepository.save(createDbDto3());
+
+        //given
+        List<ScopeGasConnectionDbDto> result = scopeGasConnectionDtoRepository.findAllByIdTaskAndAndTypeOfTask(TASK_ID, TASK_TYPE.getDbValue());
+        //then
+        Assertions.assertTrue(result.size() == 3);
 
     }
 
@@ -80,7 +97,8 @@ class ScopeGasConnectionRepositoryAdapterTest {
         dto.setIdTask(2);
         dto.setGasCabinetProvider(GasCabinetProviderType.CUSTOMER);
         dto.setTypeOfTask(TaskType.GAS_CONNECTION);
-
+        dto.setSdr(SdrType.SDR_17_6);
+        dto.setMaterial(MaterialType.PE100);
         return dto;
     }
 
@@ -89,7 +107,18 @@ class ScopeGasConnectionRepositoryAdapterTest {
         dto.setIdTask(2);
         dto.setGasCabinetProvider(GasCabinetProviderType.COMPANY);
         dto.setTypeOfTask(TaskType.GAS_CONNECTION);
+        dto.setSdr(SdrType.SDR_17_6);
+        dto.setMaterial(MaterialType.PE100);
+        return dto;
+    }
 
+    private ScopeGasConnectionDbDto createDbDto3() {
+        ScopeGasConnectionDbDto dto = new ScopeGasConnectionDbDto();
+        dto.setIdTask(2);
+        dto.setGasCabinetProvider(GasCabinetProviderType.COMPANY);
+        dto.setTypeOfTask(TaskType.GAS_CONNECTION);
+        dto.setSdr(SdrType.SDR_11);
+        dto.setMaterial(MaterialType.PE100RC);
         return dto;
     }
 }

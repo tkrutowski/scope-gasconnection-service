@@ -35,8 +35,8 @@ class InMemoryScopeGasConnectionRepositoryAdapter implements IScopeGasConnection
         return Optional.ofNullable(gasConnectionDbDtoHashMap.get(id));
     }
 
-//    @Override
-//    public List<ScopeGasConnectionDbDto> findByIdTaskAndTaskType(Integer id, TaskType taskType) {
-//        return null;
-//    }
+    @Override
+    public List<ScopeGasConnectionDbDto> findByIdTaskAndTaskType(Integer id, TaskType taskType) {
+        return null;
+    }
 }
