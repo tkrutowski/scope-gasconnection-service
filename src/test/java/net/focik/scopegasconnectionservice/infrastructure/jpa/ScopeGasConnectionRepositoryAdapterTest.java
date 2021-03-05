@@ -46,7 +46,7 @@ class ScopeGasConnectionRepositoryAdapterTest {
         //given
         List<ScopeGasConnectionDbDto> result = scopeGasConnectionDtoRepository.findAllByIdTaskAndAndTypeOfTask(TASK_ID, TASK_TYPE.getDbValue());
         //then
-        Assertions.assertTrue(result.size() == 3);
+        Assertions.assertEquals( 3,result.size());
 
     }
 
