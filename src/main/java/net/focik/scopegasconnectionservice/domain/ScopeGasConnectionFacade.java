@@ -24,9 +24,9 @@ public class ScopeGasConnectionFacade {
 //    @Value("${local.server.port}")
 //    private int port;
 
-    public Integer addGasConnection(ScopeGasConnectionDbDto customerDbDto) {
+    public Integer addScopeGasConnection(ScopeGasConnectionDbDto scopeDbDto) {
 int i=0;
-         return scopeGasConnectionRepository.add(customerDbDto);
+         return scopeGasConnectionRepository.add(scopeDbDto);
     }
 
 

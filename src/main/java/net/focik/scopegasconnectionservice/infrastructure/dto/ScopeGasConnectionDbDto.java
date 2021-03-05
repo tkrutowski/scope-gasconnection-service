@@ -5,12 +5,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import net.focik.scopegasconnectionservice.domain.share.GasCabinetProviderType;
+import net.focik.scopegasconnectionservice.domain.share.MaterialType;
+import net.focik.scopegasconnectionservice.domain.share.SdrType;
 import net.focik.scopegasconnectionservice.domain.share.TaskType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -40,9 +44,11 @@ public class ScopeGasConnectionDbDto {
     @Column(name = "dlugosc")
     private float lenghtWar;
     @Column(name = "material")
-    private String material;
+    @Enumerated(EnumType.STRING)
+    private MaterialType material;
     @Column(name = "sdr")
-    private String sdr;
+    @Convert(converter = SdrTypeConverter.class)
+    private SdrType sdr;
     @Column(name = "dlugosc_proj")
     private float lenghtProj;
     @Convert(converter = GasCabinetProviderTypeConverter.class)
@@ -50,5 +56,5 @@ public class ScopeGasConnectionDbDto {
     private GasCabinetProviderType gasCabinetProvider;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "szafka_data_odbioru")
-    private LocalDate fasCabinetPickupDate;
+    private LocalDate gasCabinetPickupDate;
 }

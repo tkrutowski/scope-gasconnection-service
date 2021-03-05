@@ -26,7 +26,7 @@ class ScopeGasConnectionController {
 
     @PostMapping
     public Integer addScopeGasConnection(@RequestBody ScopeGasConnectionDbDto scopeGasConnectionDbDto){
-        return scopeGasConnectionFacade.addGasConnection(scopeGasConnectionDbDto);
+        return scopeGasConnectionFacade.addScopeGasConnection(scopeGasConnectionDbDto);
     }
 
     @GetMapping("/{id}")
