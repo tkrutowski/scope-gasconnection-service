@@ -1,7 +1,6 @@
 package net.focik.scopegasconnectionservice.domain;
 
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import net.focik.scopegasconnectionservice.domain.dto.ScopeGasConnectionDto;
 import net.focik.scopegasconnectionservice.domain.port.IScopeGasConnectionRepository;
 import net.focik.scopegasconnectionservice.domain.share.TaskType;
@@ -14,7 +13,6 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-@NoArgsConstructor
 public class ScopeGasConnectionFacade {
 
     //@Qualifier("inMemoryClientRepositoryAdapter")
@@ -24,17 +22,18 @@ public class ScopeGasConnectionFacade {
 //    @Value("${local.server.port}")
 //    private int port;
 
-    public Integer addScopeGasConnection(ScopeGasConnectionDbDto scopeDbDto) {
+    public Integer addScopeGasConnection(ScopeGasConnectionDto scopeDto) {
 int i=0;
-         return scopeGasConnectionRepository.add(scopeDbDto);
+        ScopeGasConnectionDbDto dbDto = mapper.map(scopeDto, ScopeGasConnectionDbDto.class);
+        return scopeGasConnectionRepository.add(dbDto);
     }
 
 
-    public List<ScopeGasConnectionDto> getGasConnectionDto(Integer id, TaskType taskType) {
+    public List<ScopeGasConnectionDto> getGasConnectionDtoList(Integer id, TaskType taskType) {
         int i=0;
-        //List<ScopeGasConnectionDbDto> scopeDbDtoList = scopeGasConnectionRepository.findByIdTaskAndTaskType(id, taskType);
+        List<ScopeGasConnectionDbDto> scopeDbDtoList = scopeGasConnectionRepository.findByIdTaskAndTaskType(id, taskType);
 
-        return null;//mapToDto(scopeDbDtoList);
+        return mapToDto(scopeDbDtoList);
     }
 
     private List<ScopeGasConnectionDto> mapToDto(List<ScopeGasConnectionDbDto> scopeDbDtoList) {

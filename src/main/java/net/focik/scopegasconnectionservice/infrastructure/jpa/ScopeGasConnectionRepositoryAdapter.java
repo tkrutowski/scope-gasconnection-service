@@ -1,7 +1,6 @@
 package net.focik.scopegasconnectionservice.infrastructure.jpa;
 
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.extern.java.Log;
 import net.focik.scopegasconnectionservice.domain.port.IScopeGasConnectionRepository;
 import net.focik.scopegasconnectionservice.domain.share.TaskType;
@@ -13,7 +12,6 @@ import java.util.Optional;
 
 @Component
 @AllArgsConstructor
-@NoArgsConstructor
 @Log
 class ScopeGasConnectionRepositoryAdapter implements IScopeGasConnectionRepository {
 
