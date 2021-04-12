@@ -29,9 +29,9 @@ int i=0;
     }
 
 
-    public List<ScopeGasConnectionDto> getGasConnectionDtoList(Integer id, TaskType taskType) {
+    public List<ScopeGasConnectionDto> getGasConnectionDtoList(Integer idTask, TaskType taskType) {
         int i=0;
-        List<ScopeGasConnectionDbDto> scopeDbDtoList = scopeGasConnectionRepository.findByIdTaskAndTaskType(id, taskType);
+        List<ScopeGasConnectionDbDto> scopeDbDtoList = scopeGasConnectionRepository.findByIdTaskAndTaskType(idTask, taskType);
 
         return mapToDto(scopeDbDtoList);
     }

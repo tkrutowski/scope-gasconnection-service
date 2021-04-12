@@ -37,13 +37,13 @@ class ScopeGasConnectionRepositoryAdapter implements IScopeGasConnectionReposito
     }
 
     @Override
-    public List<ScopeGasConnectionDbDto> findByIdTaskAndTaskType(Integer id, TaskType taskType) {
-        log.info("Try find scopeGasConnectionDbDtos by ID = " + id + " and TASK_TYPE = " + taskType);
-        List<ScopeGasConnectionDbDto> dtoList = scopeGasConnectionDtoRepository.findAllByIdTaskAndAndTypeOfTask(id, taskType.getDbValue());
+    public List<ScopeGasConnectionDbDto> findByIdTaskAndTaskType(Integer idTask, TaskType taskType) {
+        log.info("Try find scopeGasConnectionDbDtos by ID_TASK = " + idTask + " and TASK_TYPE = " + taskType.getDbValue());
+        List<ScopeGasConnectionDbDto> dtoList = scopeGasConnectionDtoRepository.findAllByIdTaskAndAndTypeOfTask(idTask, taskType.getDbValue());
         if (dtoList.size() > 0)
             log.info("Found " + dtoList.size() + " scopeGasConnectionDbDto.");
         else
-            log.info("Not found scopeGasConnectionDbDto: ID = " + id + " and TASK_TYPE = " + taskType);
+            log.info("Not found scopeGasConnectionDbDto: ID_TASK = " + idTask + " and TASK_TYPE = " + taskType.getDbValue());
         return dtoList;
     }
 }
