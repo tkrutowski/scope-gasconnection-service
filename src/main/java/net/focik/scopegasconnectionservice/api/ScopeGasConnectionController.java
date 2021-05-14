@@ -31,7 +31,7 @@ class ScopeGasConnectionController {
     @GetMapping("/task/{idTask}")
     ResponseEntity<List<ScopeGasConnectionDto>> getScopeGasConnection(@PathVariable Integer idTask, @RequestParam(name = "type", defaultValue = "GAS_CONNECTION") TaskType taskType) {
         int i = 0;
-        List<ScopeGasConnectionDto> gasConnectionDtoList = scopeGasConnectionFacade.getGasConnectionDtoList(idTask, taskType);
+        List<ScopeGasConnectionDto> gasConnectionDtoList = scopeGasConnectionFacade.getScopeGasConnectionDtoList(idTask, taskType);
         return new ResponseEntity<>(gasConnectionDtoList, HttpStatus.OK);
     }
 

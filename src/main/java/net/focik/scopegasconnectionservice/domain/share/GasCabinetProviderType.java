@@ -31,6 +31,8 @@ public enum GasCabinetProviderType {
                 return GasCabinetProviderType.CUSTOMER;
             case "Progas":
                 return GasCabinetProviderType.COMPANY;
+            case "PSG":
+                return GasCabinetProviderType.PSG;
             default:
                 throw new IllegalArgumentException("Value [" + dbValue
                         + "] not supported.");
